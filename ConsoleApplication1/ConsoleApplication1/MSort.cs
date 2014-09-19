@@ -13,23 +13,71 @@ namespace ConsoleApplication1
 
         public int[][] SortBySumm(int[][] matrix)
         {
-           int[] temp = new int[matrix.Length];
-            for (int i = 0; i < temp.Length; i++)
+            int size = 0;
+            int[][] sortedMatrix = new int[matrix.Length][];
+            for (int i = 0; i < matrix.Length; i++)
             {
-                temp[i] = ElementSumm(matrix[i]);
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    size++;
+                    sortedMatrix[i] = new int[size+1];
+                }
+                size = 0;
             }
-                                     
-              
-            foreach (int x in temp)
+
+
+           for (int i = 0; i < matrix.Length; i++)
             {
-                System.Console.Write(x + " ");
+               for (int j = 0; j < matrix[i].Length; j++)
+                {
+                   
+                    sortedMatrix[i][j] = matrix[i][j];
+                }
+               
             }
-            System.Console.ReadLine();                              
+                     
             
+              int last;
+                   for (int i = 0; i < sortedMatrix.Length; i++)
+                     {
+                         last = sortedMatrix[i].Length-1;
+                         sortedMatrix[i][last] = ElementSumm(matrix[i]);
+                      }
 
 
-                return matrix;
+
+
+                 /*  for (int i = 0; i < matrix.Length; i++)
+                   {
+                       for (int j = 0; j < matrix.Length-1; j++)
+                       {
+                            last = sortedMatrix[i].Length-1;
+                            if (sortedMatrix[i][last] > sortedMatrix[i + 1][last])
+                            {
+
+                            }
+
+                         
+                       }
+
+                   }
+            
+            */
+            
+            
+            
+            
+            
+            
+         
+                    
+
+
+
+                return sortedMatrix;
         }
+
+       
 
 
 
@@ -44,6 +92,24 @@ namespace ConsoleApplication1
             }
 
             return summ;
+        }
+
+        public static int MinElement(int[] arr)
+        {
+            int min = 100;
+            int pos = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (min > arr[i])
+                {
+                    min = arr[i];
+                    pos = i;
+
+                }
+            }
+            return pos;
+
+
         }
 
 

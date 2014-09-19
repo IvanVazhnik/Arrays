@@ -8,6 +8,11 @@ namespace ConsoleApplication1
 {
     class Program
     {
+
+
+        const int ARRSIZE = 30;
+        const int MATRIXSIZE = 5;
+
         static void Main(string[] args)
         {
                         
@@ -16,10 +21,10 @@ namespace ConsoleApplication1
             QuickSort qs = new QuickSort();
             PrintResult print = new PrintResult();
             MSort mats = new MSort();
-           
-            int[][] mat = new int[5][];
 
-            int[] arr = new int[30];
+            int[][] mat = new int[MATRIXSIZE][];
+
+            int[] arr = new int[ARRSIZE];
             int[] mSortedArray = new int[arr.Length];
             int[] qSortedArray = new int[arr.Length];
            
@@ -53,8 +58,10 @@ namespace ConsoleApplication1
 
             mats.SortBySumm(mat);
 
-            print.Print(mat);
-        
+            print.Print( mats.SortBySumm(mat));
+
+            
+           
 
         }
 
